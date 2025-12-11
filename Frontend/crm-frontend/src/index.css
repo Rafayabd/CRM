@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* === LIGHT THEME === */
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  
+  --bg-body: #f3f4f6;
+  --bg-card: #ffffff;
+  
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  
+  --border: #e5e7eb;
+  
+  /* Input Colors */
+  --input-bg: #ffffff;
+  --input-text: #111827;
+  --input-border: #d1d5db;
+  
+  /* Button Colors */
+  --btn-outline-bg: #ffffff;
+  --btn-outline-text: #374151;
+  --btn-outline-border: #d1d5db;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* === DARK THEME === */
+body.dark-mode {
+  --primary: #6366f1;
+  --primary-hover: #818cf8;
+  
+  --bg-body: #0f172a;
+  --bg-card: #1e293b; /* Card Dark Hoga */
+  
+  --text-main: #f9fafb;
+  --text-muted: #94a3b8;
+  
+  --border: #334155;
+  
+  /* Inputs Dark Honge */
+  --input-bg: #334155;
+  --input-text: #f3f4f6;
+  --input-border: #475569;
+  
+  /* Outline Button Fix */
+  --btn-outline-bg: transparent;
+  --btn-outline-text: #f3f4f6;
+  --btn-outline-border: #475569;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Layout */
+.container { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
+
+header {
+  background: var(--bg-card); border-bottom: 1px solid var(--border);
+  padding: 16px 30px; position: sticky; top: 0; z-index: 100;
+  box-shadow: var(--shadow-sm); display: flex; justify-content: space-between; align-items: center;
+}
+
+/* === LOGIN PAGE FIXED === */
+.login-bg {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh; width: 100%;
+  display: flex; justify-content: center; align-items: center;
+  padding: 20px;
+}
+
+.login-card {
+  background-color: var(--bg-card); /* Theme aware background */
+  color: var(--text-main);          /* Theme aware text */
+  padding: 40px 30px; 
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  width: 100%; 
+  max-width: 380px;
+  border: 1px solid var(--border);
+}
+
+/* === COMPONENTS === */
+.card, .stat-box {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 24px; box-shadow: var(--shadow-sm);
+}
+
+.btn {
+  padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 14px;
+  cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.2s; border: 1px solid transparent;
+}
+.btn:active { transform: scale(0.98); }
+.btn-primary { background: var(--primary); color: white; }
+.btn-outline { background: var(--btn-outline-bg); color: var(--btn-outline-text); border-color: var(--btn-outline-border); }
+.btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+.btn-danger { color: #ef4444; border-color: #ef4444; background: transparent; }
+
+.form-input, select {
+  width: 100%; padding: 10px 12px; border-radius: 8px;
+  border: 1px solid var(--input-border); background-color: var(--input-bg); color: var(--input-text);
+  outline: none; font-size: 14px; transition: all 0.2s;
+}
+.form-input:focus { border-color: var(--primary); }
+input:-webkit-autofill { -webkit-box-shadow: 0 0 0 30px var(--input-bg) inset !important; -webkit-text-fill-color: var(--text-main) !important; }
+
+.table-container { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--bg-card); overflow-x: auto; }
+.table { width: 100%; border-collapse: collapse; white-space: nowrap; }
+.table th { background: var(--bg-body); color: var(--text-muted); padding: 14px 20px; text-align: left; font-size: 12px; border-bottom: 1px solid var(--border); }
+.table td { padding: 14px 20px; border-bottom: 1px solid var(--border); font-size: 14px; color: var(--text-main); }
+
+.board-container { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 16px; }
+.kanban-column { background: var(--bg-body); min-width: 280px; border-radius: 12px; padding: 16px; border: 1px solid var(--border); }
+.kanban-card { background: var(--bg-card); padding: 16px; border-radius: 8px; margin-bottom: 12px; border: 1px solid var(--border); color: var(--text-main); }
